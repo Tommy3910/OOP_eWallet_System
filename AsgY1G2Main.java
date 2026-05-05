@@ -5,8 +5,8 @@ public class AsgY1G2Main {
         Scanner scan = new Scanner(System.in);
 
         TouchNGo tng1;
+        BankDebitAccount BDA1;
         tng1 = new TouchNGo(12345, 500);
-        double left = tng1.balance - price;
 
         class payment {
             public void makePayment() {
