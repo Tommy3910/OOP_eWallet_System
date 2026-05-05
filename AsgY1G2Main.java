@@ -7,6 +7,7 @@ public class AsgY1G2Main {
         TouchNGo tng1;
         BankDebitAccount BDA1;
         tng1 = new TouchNGo(12345, 500);
+        BDA1 = new BankDebitAccount(565682, 300);
 
         class payment {
             public void makePayment() {
