@@ -3,9 +3,25 @@ import java.util.Scanner;
 public class AsgY1G2Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        BankDebitAccount b = new BankDebitAccount();
+        int choice; 
+        String accountNum; 
+        double balance;
 
-        int choice;
+
+
+
+
+
+
+
+        System.out.print("Enter account number for BankDebitAccount: ");
+        accountNum = scan.nextLine();
+        System.out.println("Enter Balance for:");
+        balance = scan.nextDouble();
+
+        BankDebitAccount b = new BankDebitAccount(accountNum, balance);
+
+    
         
         do{
             System.out.println("\n===========================");
@@ -43,6 +59,18 @@ public class AsgY1G2Main {
 
         }while (choice !=5);
 
+        double price = 2.0;
+        class payment {
+            public void makePayment() {
+                System.out.println("Payment done");
+            }
+        }
+
+        class TNG extends payment {
+            public void makePayment() {
+
+            }
+        }
         scan.close();
         
     }
