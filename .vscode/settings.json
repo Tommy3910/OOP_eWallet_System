@@ -1,0 +1,4 @@
+{
+    "editor.defaultFormatter": "DEVSENSE.composer-php-vscode",
+    "editor.formatOnSave": true
+}
