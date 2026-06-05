@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.swing.plaf.basic.BasicButtonListener;
+
 public class AsgY1G2Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -40,13 +42,8 @@ public class AsgY1G2Main {
             }
 
             public void makePayment() {
-                if (bda.balance >= price) {
-                    bda.balance -= price;
-                    System.out.println("Pay using Bank Debit Account");
-                    System.out.println("Balance left" + bda.balance);
-                } else {
-                    System.out.println("Insufficient balance");
-                }
+                bda.makePayment(price);
+                System.out.printf("Balance left: RM%.2f\n", bda.getBalance());
             }
 
         }
