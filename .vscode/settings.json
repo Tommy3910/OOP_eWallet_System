@@ -1,7 +1,4 @@
 {
     "editor.defaultFormatter": "DEVSENSE.composer-php-vscode",
-    "editor.formatOnSave": true,
-    "[java]": {
-        "editor.defaultFormatter": "redhat.java"
-    }
+    "editor.formatOnSave": true
 }
