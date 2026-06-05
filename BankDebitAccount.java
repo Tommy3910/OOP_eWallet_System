@@ -1,4 +1,4 @@
-public class BankDebitAccount{
+ class BankDebitAccount extends Payment{
     private String accountNo;
     private double balance;
 
