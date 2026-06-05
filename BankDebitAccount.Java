@@ -33,6 +33,18 @@ public class BankDebitAccount{
         System.out.println("Balance: "+ balance);
     }
 
+    public double getBalance(){
+        return balance;
+    }
+
+    public void setBalance(double balance){
+        if (balance  >= 0){
+            this.balance = balance;
+        }else{
+            System.out.println("Why negative? You broke?");
+        }
+    }
+
     public void displayAccountInfo(){
         System.out.println("Account Type: Bank Debit Account");
         System.out.println("Account no:" + accountNo);
