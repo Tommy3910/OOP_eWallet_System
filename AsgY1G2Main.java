@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.swing.plaf.basic.BasicButtonListener;
-
 public class AsgY1G2Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
