@@ -45,7 +45,6 @@ public class AsgY1G2Main {
                 bda.makePayment(price);
                 System.out.printf("Balance left: RM%.2f\n", bda.getBalance());
             }
-
         }
         scan.close();
         
