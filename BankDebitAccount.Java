@@ -1,11 +1,10 @@
-public class BankDebitAccount{
+class BankDebitAccount extends Payment{
     private String accountNo;
-    private double balance;
 
 
     public BankDebitAccount(String accountNo, double balance){
         this.accountNo = accountNo;
-        this.balance = balance; 
+        super(balance);
     }
 
     public double topUp(double amountTopUp){
