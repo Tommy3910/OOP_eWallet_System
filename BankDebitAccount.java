@@ -1,7 +1,4 @@
  class BankDebitAccount extends Payment{
-
- 
-
     
     public BankDebitAccount(String accountNo, double balance){
         super(accountNo, balance);
