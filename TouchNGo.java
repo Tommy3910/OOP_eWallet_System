@@ -1,9 +1,7 @@
 public class TouchNGo extends Payment {
-    private int tngID;
 
-    public TouchNGo(int tngID, double balance) {
-        super(balance);
-        this.tngID = tngID;
+    public TouchNGo(String tngID, double balance) {
+        super(tngID, balance);
     }
 
     public double makePayment(double amountDeduct) {
@@ -23,7 +21,7 @@ public class TouchNGo extends Payment {
         return balance;
     }
 
-    public int getTngId() {
-        return tngID;
+    public String getTngId() {
+        return accountID;
     }
 }

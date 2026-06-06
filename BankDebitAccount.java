@@ -1,10 +1,8 @@
  class BankDebitAccount extends Payment{
-    private String accountNo;
 
 
     public BankDebitAccount(String accountNo, double balance){
-        this.accountNo = accountNo;
-        super(balance);
+        super(accountNo, balance);
     }
 
     public double topUp(double amountTopUp){
@@ -48,7 +46,7 @@
 
     public void displayAccountInfo(){
         System.out.println("Account Type: Bank Debit Account");
-        System.out.println("Account no:" + accountNo);
+        System.out.println("Account no:" + accountID);
         System.out.printf("Balance: RM%.2f\n", balance); //printf %.2f rounds up the value
     }
 
