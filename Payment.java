@@ -1,5 +1,5 @@
 public class Payment {
-    protected double balance;
+     double balance;
 
     public Payment() {
     }
@@ -25,4 +25,3 @@ public class Payment {
         return balance;
     }
 }
- 
