@@ -1,7 +1,7 @@
 public class TouchNGo extends Payment {
-    private int tngID;
+    private String tngID;
 
-    public TouchNGo(int tngID, double balance) {
+    public TouchNGo(String tngID, double balance) {
         super(balance);
         this.tngID = tngID;
     }
@@ -23,7 +23,10 @@ public class TouchNGo extends Payment {
         return balance;
     }
 
-    public int getTngId() {
+    public String getTngId() {
         return tngID;
+    }
+    public void setTngId(String tngID){
+        this.tngID=tngID;
     }
 }

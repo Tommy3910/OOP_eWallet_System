@@ -34,18 +34,14 @@
         System.out.println("Balance: RM%.2f\n"+ balance);
     }
 
-    public double getBalance(){
-        return balance;
+    public String getAccountNo(){
+        return accountNo;
     }
 
-    public void setBalance(double balance){
-        if (balance  >= 0){
-            this.balance = balance;
-        }else{
-            System.out.println("Why negative? You broke?");
-        }
+    public void setAccountNo(String accountNo){
+        this.accountNo=accountNo;
+        
     }
-
     public void displayAccountInfo(){
         System.out.println("Account Type: Bank Debit Account");
         System.out.println("Account no:" + accountNo);
