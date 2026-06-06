@@ -15,13 +15,16 @@ public class TouchNGo extends Payment {
     }
     public double makePayment(double amountDeduct) {
         System.out.println("Pay using TouchNGo");
+        System.out.println("________________________");
         if (amountDeduct <= 0) {
             System.out.println("Error: amount must be positive");
         } else if (amountDeduct > balance) {
             System.out.println("Insufficient balance");
         } else {
             balance -= amountDeduct;
+            System.out.println("______________________");
             System.out.println("Payment successful");
+            System.out.println("______________________");
         }
         return balance;
     }
@@ -40,8 +43,10 @@ public class TouchNGo extends Payment {
     }
 
      public void displayAccountInfo(){
+        System.out.println("--------------------------------------");
         System.out.println("Account Type: Touch N Go Account");
         System.out.println("Account no:" + accountID);
         System.out.printf("Balance: RM%.2f\n", balance); //printf %.2f rounds up the value
+        System.out.println("--------------------------------------");
     }
 }

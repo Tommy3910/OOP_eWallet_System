@@ -62,5 +62,18 @@ public abstract class Payment implements AccountFeature {
         System.out.println ("Generic Payment Account");
         System.out.printf("Balance: RM%.2f\n", balance);
     }
+
+    public static boolean isValidInput(String id){
+        if (id.length() != 16){
+            return false;
+        }
+
+        for (int i = 0; i<id.length(); i++){
+            if (id.charAt(i) < '0' || id.charAt(i) > '9'){
+                return false;
+            }
+        }
+        return true;
+    }
 }
  

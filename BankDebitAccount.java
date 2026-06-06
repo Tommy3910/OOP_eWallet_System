@@ -15,14 +15,17 @@
     }
 
     public double makePayment(double amountDeduct) {
-        System.out.println("Processing Bank Debit Accoint Payment...");
+        System.out.println("Processing Bank Debit Account Payment...");
+        System.out.println("-------------------------------------------");
         if (amountDeduct <= 0) {
             System.out.println("Error: YOU BROKE!!!");
         } else if (amountDeduct > balance) {
             System.out.println("Insufficient balance");
         } else {
             balance -= amountDeduct;
+            System.out.println("___________________________________________");
             System.out.println("Payment successful using Bank Debit card");
+            System.out.println("___________________________________________");
         }
         return balance;
     }
@@ -40,9 +43,11 @@
         
     }
     public void displayAccountInfo(){
+        System.out.println("--------------------------------------");
         System.out.println("Account Type: Bank Debit Account");
         System.out.println("Account no:" + accountID);
         System.out.printf("Balance: RM%.2f\n", balance); //printf %.2f rounds up the value
+        System.out.println("--------------------------------------");
     }
 
 }
