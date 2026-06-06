@@ -1,4 +1,4 @@
-public class Payment implements AccountFeature {
+public abstract class Payment implements AccountFeature {
     protected double balance;
     protected String accountID;
 
@@ -13,6 +13,10 @@ public class Payment implements AccountFeature {
     @Override
     public String getAccountID(){
         return accountID;
+    }
+
+    public void setAccountID(String accountID){
+        this.accountID = accountID;
     }
 
     public double getBalance(){
