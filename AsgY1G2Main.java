@@ -109,13 +109,7 @@ public class AsgY1G2Main {
                 String topupType = input.nextLine().toLowerCase();
 
                     if (topupType.equals("a")) {
-                        System.out.println("Top up for Touch N Go not implemented yet.");
-                    } else if (topupType.equals("b")) {
-                        System.out.println("Top up for Bank Debit Account not implemented yet.");
-                    } else {
-                        System.out.println("Invalid account type selected.");
-                    }
-                    break;
+                   
                 default:
                     System.out.println("Invalid selection.");
                     break;

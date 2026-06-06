@@ -6,6 +6,15 @@ public class TouchNGo extends Payment {
         super(tngID, balance);
     }
 
+      public double topUp(double amountTopUp){
+         if(amountTopUp > 0){
+        balance += amountTopUp;
+        System.out.println("Succesfully toped up");
+         }else
+            System.out.println("You broke");
+
+        return balance;
+    }
     public double makePayment(double amountDeduct) {
         System.out.println("Pay using TouchNGo");
         if (amountDeduct <= 0) {
