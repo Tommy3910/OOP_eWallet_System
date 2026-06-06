@@ -1,7 +1,5 @@
 public class TouchNGo extends Payment {
 
-    
-
     public TouchNGo(String tngID, double balance) {
         super(tngID, balance);
     }
