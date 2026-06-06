@@ -1,6 +1,8 @@
 public class TouchNGo extends Payment {
     private String tngID;
 
+    
+
     public TouchNGo(String tngID, double balance) {
         super(balance);
         this.tngID = tngID;

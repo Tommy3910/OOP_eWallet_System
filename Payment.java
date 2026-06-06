@@ -36,7 +36,7 @@ public class Payment implements AccountFeature {
     }
 
     public void checkBalance(){
-        System.out.printf("Balance: RM%.2f\n" + balance);
+        System.out.printf("Balance: RM%.2f\n", balance);
     }
 
     public void displayAccountInfo(){
