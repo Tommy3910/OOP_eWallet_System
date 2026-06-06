@@ -6,6 +6,7 @@ public class AsgY1G2Main {
         BankDebitAccount[] bankAccounts = new BankDebitAccount[10];
         int tngCount = 0;
         int bankCount = 0;
+        int selection ;
         Scanner input = new Scanner(System.in);
 
         System.out.println(
@@ -18,6 +19,8 @@ public class AsgY1G2Main {
                         "5.Make Payment" +
                         "6.Exit" +
                         "=======================");
+        System.out.println("Please choose a number between(1-6)");    
+        selection=input.nextInt();     
 
         switch (selection) {
             case 1:
@@ -60,6 +63,7 @@ public class AsgY1G2Main {
                 if (viewType.equals("a")) {
                     if (tngCount == 0) {
                         System.out.println("No Touch N Go accounts found.");
+                        break;
                     }
                     System.out.println("Touch N Go accounts:");
                     for (int i = 0; i < tngCount; i++) {
@@ -94,9 +98,13 @@ public class AsgY1G2Main {
                     System.out.println("Invalid view option.");
                 }
                 break;
+            case 3:
+                System.out.println("Which account you want to top up:");
+                System.out.println("a. Touch N Go");
+                System.out.println("b. Bank Debit Account");
+                String topupType = input.nextLine().toLowerCase();
 
-           case 3:
-
+                if(topupType)
         }
     }
 }
