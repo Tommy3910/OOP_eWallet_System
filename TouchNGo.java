@@ -19,7 +19,7 @@ public class TouchNGo extends Payment {
         return balance;
     }
 
-    public double accountbalance() {
+    public double checkbalance() {
         return balance;
     }
 

@@ -1,5 +1,5 @@
 public class Payment {
-     double balance;
+    double balance;
 
     public Payment() {
     }
