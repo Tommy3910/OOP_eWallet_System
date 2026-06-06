@@ -1,6 +1,30 @@
 import java.util.Scanner;
 
 public class AsgY1G2Main {
+    public static int readInt(Scanner input, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String line = input.nextLine().trim();
+            try {
+                return Integer.parseInt(line);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number. Please enter a valid integer.");
+            }
+        }
+    }
+
+    public static double readDouble(Scanner input, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String line = input.nextLine().trim();
+            try {
+                return Double.parseDouble(line);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid amount. Please enter a valid number.");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         TouchNGo[] tngAccounts = new TouchNGo[10];
         BankDebitAccount[] bankAccounts = new BankDebitAccount[10];
@@ -19,9 +43,7 @@ public class AsgY1G2Main {
             System.out.println("5. Make Payment");
             System.out.println("6. Exit");
             System.out.println("=======================");
-            System.out.print("Please choose a number between (1-6): ");
-            selection = input.nextInt();
-            input.nextLine();
+            selection = readInt(input, "Please choose a number between (1-6): ");
 
             switch (selection) {
                 case 1:
@@ -70,9 +92,7 @@ public class AsgY1G2Main {
                         for (int i = 0; i < tngCount; i++) {
                             System.out.println((i + 1) + ". " + tngAccounts[i].getTngId());
                         }
-                        System.out.print("Enter account number: ");
-                        int selectedIndex = input.nextInt() - 1;
-                        input.nextLine();
+                        int selectedIndex = readInt(input, "Enter account number: ") - 1;
                         if (selectedIndex < 0 || selectedIndex >= tngCount) {
                             System.out.println("Invalid selection.");
                         } else {
@@ -87,9 +107,7 @@ public class AsgY1G2Main {
                         for (int i = 0; i < bankCount; i++) {
                             System.out.println((i + 1) + ". " + bankAccounts[i].getAccountNo());
                         }
-                        System.out.print("Enter account number: ");
-                        int selectedIndex = input.nextInt() - 1;
-                        input.nextLine();
+                        int selectedIndex = readInt(input, "Enter account number: ") - 1;
                         if (selectedIndex < 0 || selectedIndex >= bankCount) {
                             System.out.println("Invalid selection.");
                         } else {
@@ -115,15 +133,11 @@ public class AsgY1G2Main {
                         for (int i = 0; i < tngCount; i++) {
                             System.out.println((i + 1) + ". " + tngAccounts[i].getTngId());
                         }
-                        System.out.print("Enter account number to top up: ");
-                        int selectedIndex = input.nextInt() - 1;
-                        input.nextLine();
+                        int selectedIndex = readInt(input, "Enter account number to top up: ") - 1;
                         if (selectedIndex < 0 || selectedIndex >= tngCount) {
                             System.out.println("Invalid selection.");
                         } else {
-                            System.out.print("Enter top up amount: ");
-                            double amount = input.nextDouble();
-                            input.nextLine();
+                            double amount = readDouble(input, "Enter top up amount: ");
                             tngAccounts[selectedIndex].topUp(amount);
                         }
                     } else if (topupType.equals("b")) {
@@ -135,15 +149,11 @@ public class AsgY1G2Main {
                         for (int i = 0; i < bankCount; i++) {
                             System.out.println((i + 1) + ". " + bankAccounts[i].getAccountNo());
                         }
-                        System.out.print("Enter account number to top up: ");
-                        int selectedIndex = input.nextInt() - 1;
-                        input.nextLine();
+                        int selectedIndex = readInt(input, "Enter account number to top up: ") - 1;
                         if (selectedIndex < 0 || selectedIndex >= bankCount) {
                             System.out.println("Invalid selection.");
                         } else {
-                            System.out.print("Enter top up amount: ");
-                            double amount = input.nextDouble();
-                            input.nextLine();
+                            double amount = readDouble(input, "Enter top up amount: ");
                             bankAccounts[selectedIndex].topUp(amount);
                         }
                     } else {
@@ -166,9 +176,7 @@ public class AsgY1G2Main {
                         for (int i = 0; i < tngCount; i++) {
                             System.out.println((i + 1) + ". " + tngAccounts[i].getTngId());
                         }
-                        System.out.print("Enter account number: ");
-                        int selectedIndex = input.nextInt() - 1;
-                        input.nextLine();
+                        int selectedIndex = readInt(input, "Enter account number: ") - 1;
                         if (selectedIndex < 0 || selectedIndex >= tngCount) {
                             System.out.println("Invalid selection.");
                         } else {
@@ -183,9 +191,7 @@ public class AsgY1G2Main {
                         for (int i = 0; i < bankCount; i++) {
                             System.out.println((i + 1) + ". " + bankAccounts[i].getAccountNo());
                         }
-                        System.out.print("Enter account number: ");
-                        int selectedIndex = input.nextInt() - 1;
-                        input.nextLine();
+                        int selectedIndex = readInt(input, "Enter account number: ") - 1;
                         if (selectedIndex < 0 || selectedIndex >= bankCount) {
                             System.out.println("Invalid selection.");
                         } else {
@@ -211,15 +217,11 @@ public class AsgY1G2Main {
                         for (int i = 0; i < tngCount; i++) {
                             System.out.println((i + 1) + ". " + tngAccounts[i].getTngId());
                         }
-                        System.out.print("Enter account number: ");
-                        int selectedIndex = input.nextInt() - 1;
-                        input.nextLine();
+                        int selectedIndex = readInt(input, "Enter account number: ") - 1;
                         if (selectedIndex < 0 || selectedIndex >= tngCount) {
                             System.out.println("Invalid selection.");
                         } else {
-                            System.out.print("Enter payment amount: ");
-                            double price = input.nextDouble();
-                            input.nextLine();
+                            double price = readDouble(input, "Enter payment amount: ");
                             tngAccounts[selectedIndex].makePayment(price);
                         }
                     } else if (paymentType.equals("b")) {
@@ -231,15 +233,11 @@ public class AsgY1G2Main {
                         for (int i = 0; i < bankCount; i++) {
                             System.out.println((i + 1) + ". " + bankAccounts[i].getAccountNo());
                         }
-                        System.out.print("Enter account number: ");
-                        int selectedIndex = input.nextInt() - 1;
-                        input.nextLine();
+                        int selectedIndex = readInt(input, "Enter account number: ") - 1;
                         if (selectedIndex < 0 || selectedIndex >= bankCount) {
                             System.out.println("Invalid selection.");
                         } else {
-                            System.out.print("Enter payment amount: ");
-                            double price = input.nextDouble();
-                            input.nextLine();
+                            double price = readDouble(input, "Enter payment amount: ");
                             bankAccounts[selectedIndex].makePayment(price);
                         }
                     } else {
