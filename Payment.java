@@ -12,7 +12,7 @@ public class Payment implements AccountFeature {
         System.out.println("Generating payment");
     }
 
-    public double topUp(double amountTopUp){
+    public double topup(double amountTopUp){
         if(amountTopUp > 0){
             balance += amountTopUp;
             System.out.println("Top-up succesful");
