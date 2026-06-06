@@ -30,7 +30,7 @@
     }
 
     public void checkBalance(){
-        System.out.println("Balance: RM%.2f\n"+ balance);
+        System.out.printf("Balance: RM%.2f\n", balance);
     }
 
     public String getAccountNo(){

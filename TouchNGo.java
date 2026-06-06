@@ -19,8 +19,8 @@ public class TouchNGo extends Payment {
         return balance;
     }
 
-    public double checkbalance() {
-        return balance;
+    public void checkBalance() {
+        System.out.printf("TouchNGo Balance: RM%.2f\n", balance);
     }
 
     public String getTngId() {

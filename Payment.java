@@ -10,6 +10,7 @@ public class Payment implements AccountFeature {
         this.balance = balance;
     }
 
+    @Override
     public String getAccountID(){
         return accountID;
     }
@@ -22,6 +23,7 @@ public class Payment implements AccountFeature {
         System.out.println("Generating payment");
     }
 
+    @Override
     public double topUp(double amountTopUp){
         if(amountTopUp > 0){
             balance += amountTopUp;
@@ -32,6 +34,7 @@ public class Payment implements AccountFeature {
         return balance;
     }
 
+    @Override
     public double makePayment(double amountDeduct) {
         System.out.println("Processing generic payment...");
         if (amountDeduct <= 0) {
@@ -45,13 +48,15 @@ public class Payment implements AccountFeature {
         return balance;
     }
 
+    @Override
     public void checkBalance(){
         System.out.printf("Balance: RM%.2f\n", balance);
     }
 
+    @Override
     public void displayAccountInfo(){
         System.out.println ("Generic Payment Account");
-        System.out.printf("Balance: RM%.2fn\n", balance);
+        System.out.printf("Balance: RM%.2f\n", balance);
     }
 }
  
