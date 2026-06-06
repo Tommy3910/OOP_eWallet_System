@@ -33,11 +33,11 @@
     }
 
     public String getAccountNo(){
-        return accountNo;
+        return accountID;
     }
 
-    public void setAccountNo(String accountNo){
-        this.accountNo=accountNo;
+    public void setAccountID(String accountNo){
+        this.accountID = accountNo;
         
     }
     public void displayAccountInfo(){

@@ -22,13 +22,11 @@ public class TouchNGo extends Payment {
     }
 
     public String getTngId() {
-<<<<<<< HEAD
         return accountID;
-=======
-        return tngID;
->>>>>>> 89c3bdb47f1464543038619eec81d107edd27e4d
     }
-    public void setTngId(String tngID){
-        this.tngID=tngID;
+
+
+    public void setAccountID(String accountID){
+        this.accountID = accountID;
     }
 }

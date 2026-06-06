@@ -5,7 +5,7 @@ public class Payment implements AccountFeature {
     public Payment() {
     }
 
-    public Payment(String aacountID, double balance) {
+    public Payment(String accountID, double balance) {
         this.accountID = accountID;
         this.balance = balance;
     }
