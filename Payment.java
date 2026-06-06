@@ -1,4 +1,4 @@
-public class Payment {
+public class Payment implements AccountFeature {
     protected double balance;
 
     public Payment() {
@@ -12,6 +12,16 @@ public class Payment {
         System.out.println("Generating payment");
     }
 
+    public double topUp(double amountTopUp){
+        if(amountTopUp > 0){
+            balance += amountTopUp;
+            System.out.println("Top-up succesful");
+        }else {
+        System.out.println("Invalid top-up amount");
+        }
+        return balance;
+    }
+
     public double makePayment(double amountDeduct) {
         System.out.println("Processing generic payment...");
         if (amountDeduct <= 0) {
@@ -22,6 +32,19 @@ public class Payment {
             balance -= amountDeduct;
             System.out.println("Payment successful");
         }
+        return balance;
+    }
+
+    public void checkBalance(){
+        System.out.printf("Balance: RM%.2f\n" + balance);
+    }
+
+    public void displayAccountInfo(){
+        System.out.println ("Generic Payment Account");
+        System.out.printf("Balance: RM%.2fn\n", balance);
+    }
+
+    public double getBalance(){
         return balance;
     }
 }
