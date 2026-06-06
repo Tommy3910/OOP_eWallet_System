@@ -1,18 +1,28 @@
 public class Payment implements AccountFeature {
     protected double balance;
+    protected String accountID;
 
     public Payment() {
     }
 
-    public Payment(double balance) {
+    public Payment(String accountID, double balance) {
+        this.accountID = accountID;
         this.balance = balance;
+    }
+
+    public String getAccountID(){
+        return accountID;
+    }
+
+    public double getBalance(){
+        return balance;
     }
 
     public void GentPayment() {
         System.out.println("Generating payment");
     }
 
-    public double topup(double amountTopUp){
+    public double topUp(double amountTopUp){
         if(amountTopUp > 0){
             balance += amountTopUp;
             System.out.println("Top-up succesful");
@@ -42,10 +52,6 @@ public class Payment implements AccountFeature {
     public void displayAccountInfo(){
         System.out.println ("Generic Payment Account");
         System.out.printf("Balance: RM%.2fn\n", balance);
-    }
-
-    public double getBalance(){
-        return balance;
     }
 }
  
