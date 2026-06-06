@@ -1,36 +1,37 @@
  class BankDebitAccount extends Payment{
     private String accountNo;
-    private double balance;
 
 
     public BankDebitAccount(String accountNo, double balance){
         this.accountNo = accountNo;
-        this.balance = balance; 
+        super(balance);
     }
 
     public double topUp(double amountTopUp){
          if(amountTopUp > 0){
         balance += amountTopUp;
+        System.out.println("Succesfully toped up");
          }else
-            System.out.println("No amount inputed");
+            System.out.println("You broke");
 
         return balance;
     }
 
-    public double makePayment(double amountDeduct){
-        if (amountDeduct <= 0){
-            System.out.println("Error");
-        }else if (amountDeduct > balance){
+    public double makePayment(double amountDeduct) {
+        System.out.println("Processing Bank Debit Accoint Payment...");
+        if (amountDeduct <= 0) {
+            System.out.println("Error: YOU BROKE!!!");
+        } else if (amountDeduct > balance) {
             System.out.println("Insufficient balance");
-        }else{ 
+        } else {
             balance -= amountDeduct;
-            System.out.println("Payment succesful");
+            System.out.println("Payment successful using Bank Debit card");
         }
         return balance;
     }
 
     public void checkBalance(){
-        System.out.println("Balance: "+ balance);
+        System.out.println("Balance: RM%.2f\n"+ balance);
     }
 
     public double getBalance(){
