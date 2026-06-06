@@ -8,26 +8,29 @@ public class AsgY1G2Main {
         int bankCount = 0;
         int selection ;
         Scanner input = new Scanner(System.in);
-
+        
+        do{
         System.out.println(
                 "Welcome to E-wallet System" +
-                        "=======================" +
-                        "1.Add Account" +
-                        "2.View Account" +
-                        "3.Top Up Account" +
-                        "4.Account Balance" +
-                        "5.Make Payment" +
-                        "6.Exit" +
-                        "=======================");
+                        "\n=======================" +
+                        "\n1.Add Account" +
+                        "\n2.View Account" +
+                        "\n3.Top Up Account" +
+                        "\n4.Account Balance" +
+                        "\n5.Make Payment" +
+                        "\n6.Exit" +
+                        "\n=======================");
         System.out.println("Please choose a number between(1-6)");    
         selection=input.nextInt();     
+        input.nextLine();
 
         switch (selection) {
             case 1:
                 System.out.println("Choose account type:");
                 System.out.println("a. Touch N Go");
                 System.out.println("b. Bank Debit Account");
-                String accountType = input.nextLine().toLowerCase();
+                String accountType = input.nextLine();
+                
 
                 if (accountType.equals("a")) {
                     if (tngCount >= tngAccounts.length) {
@@ -39,6 +42,7 @@ public class AsgY1G2Main {
                     TouchNGo t = new TouchNGo(id, 0.0);
                     tngAccounts[tngCount++] = t;
                     System.out.println("Touch N Go account added.");
+                    
                 } else if (accountType.equals("b")) {
                     if (bankCount >= bankAccounts.length) {
                         System.out.println("Bank Debit account list is full.");
@@ -58,7 +62,7 @@ public class AsgY1G2Main {
                 System.out.println("View account type:");
                 System.out.println("a. Touch N Go");
                 System.out.println("b. Bank Debit Account");
-                String viewType = input.nextLine().toLowerCase();
+                String viewType = input.nextLine().trim().toLowerCase();
 
                 if (viewType.equals("a")) {
                     if (tngCount == 0) {
@@ -104,8 +108,20 @@ public class AsgY1G2Main {
                 System.out.println("b. Bank Debit Account");
                 String topupType = input.nextLine().toLowerCase();
 
-                if(topupType)
-        }
+                    if (topupType.equals("a")) {
+                        System.out.println("Top up for Touch N Go not implemented yet.");
+                    } else if (topupType.equals("b")) {
+                        System.out.println("Top up for Bank Debit Account not implemented yet.");
+                    } else {
+                        System.out.println("Invalid account type selected.");
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid selection.");
+                    break;
+            }
+        } while (selection != 6);
+
+        input.close();
     }
 }
-

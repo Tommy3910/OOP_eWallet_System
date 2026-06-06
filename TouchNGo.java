@@ -31,4 +31,10 @@ public class TouchNGo extends Payment {
     public void setAccountID(String accountID){
         this.accountID = accountID;
     }
+
+     public void displayAccountInfo(){
+        System.out.println("Account Type: Touch N Go Account");
+        System.out.println("Account no:" + accountID);
+        System.out.printf("Balance: RM%.2f\n", balance); //printf %.2f rounds up the value
+    }
 }
