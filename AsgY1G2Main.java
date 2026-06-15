@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class AsgY1G2Main {
     public static int readInt(Scanner input, String prompt) {
@@ -35,7 +36,7 @@ public class AsgY1G2Main {
         Payment [] prePayments = new Payment [2];
         int tngCount = 0;
         int bankCount = 0;
-        int selection;
+        int selection = 0;
         String id;
         Scanner input = new Scanner(System.in);
 
@@ -44,6 +45,7 @@ public class AsgY1G2Main {
         bankAccounts[bankCount++]= new BankDebitAccount("2424242424242424", 200000);
 
         do {
+            try{
             System.out.println("______________________________");
             System.out.println("Welcome to E-wallet System");
             System.out.println("=======================");
@@ -289,12 +291,12 @@ public class AsgY1G2Main {
                         for (int i = 0; i < bankCount; i++) {
                             System.out.println((i + 1) + ". " + bankAccounts[i].getAccountNo());
                         }
-                        int selectedIndex = readInt(input, "Enter account number: ") - 1;
-                        if (selectedIndex < 0 || selectedIndex >= bankCount) {
-                            System.out.println("Invalid selection.");
-                        } else {
+                        try {
+                            int selectedIndex = readInt(input, "Enter account number: ") - 1;
                             double price = readDouble(input, "Enter payment amount: ");
                             bankAccounts[selectedIndex].makePayment(price);
+                        } catch (ArrayIndexOutOfBoundsException ex) {
+                            System.out.println("Invalid selection.");
                         }
                     } else {
                         System.out.println("Invalid account type selected.");
@@ -312,9 +314,18 @@ public class AsgY1G2Main {
                     System.out.println("====================================================");
                     System.out.println("Invalid selection.");
                     break;
-            }
-        } while (selection != 6);
-
+            } 
+        }catch(ArrayIndexOutOfBoundsException exc){
+            System.out.println("Invalid range");
+        }
+        catch(InputMismatchException ec){
+            System.out.println("Invalid input please type again");
+        }
+         } while (selection != 6);
+        
         input.close();
+        }
+   
+
     }
-}
+
