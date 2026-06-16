@@ -45,7 +45,7 @@ public class AsgY1G2Main {
         bankAccounts[bankCount++]= new BankDebitAccount("2424242424242424", 200000);
 
         do {
-            try{
+            
             System.out.println("______________________________");
             System.out.println("Welcome to E-wallet System");
             System.out.println("=======================");
@@ -254,56 +254,71 @@ public class AsgY1G2Main {
                     }
                     break;
 
-                case 5:
-                    System.out.println("Which account do you want to make payment with?");
-                    System.out.println("======================================");
-                    System.out.println("a. Touch N Go");
-                    System.out.println("b. Bank Debit Account");
-                    System.out.println("======================================");
-                    String paymentType = input.nextLine().trim().toLowerCase();
+         case 5:
+            System.out.println("Which account do you want to make payment with?");
+            System.out.println("======================================");
+            System.out.println("a. Touch N Go");
+            System.out.println("b. Bank Debit Account");
+      
+          System.out.println("======================================");
+            String paymentType = input.nextLine().trim().toLowerCase();
 
-                    if (paymentType.equals("a")) {
-                        if (tngCount == 0) {
-                            System.out.println("No Touch N Go accounts found.");
-                            break;
-                        }
-                        System.out.println("Touch N Go accounts:");
-                        for (int i = 0; i < tngCount; i++) {
-                            System.out.println("_________________________________________");
-                            System.out.println((i + 1) + ". " + tngAccounts[i].getTngId());
-                            System.out.println("_________________________________________");
-                        }
-                        int selectedIndex = readInt(input, "Enter account number: ") - 1;
-                        if (selectedIndex < 0 || selectedIndex >= tngCount) {
-                            System.out.println("Invalid selection.");
-                            System.out.println("___________________");
-                        } else {
-                            double price = readDouble(input, "Enter payment amount: ");
-                            tngAccounts[selectedIndex].makePayment(price);
-                        }
-                    } else if (paymentType.equals("b")) {
-                        if (bankCount == 0) {
-                            System.out.println("No Bank Debit accounts found.");
-                            System.out.println("______________________________");
-                            break;
-                        }
-                        System.out.println("Bank Debit accounts:");
-                        for (int i = 0; i < bankCount; i++) {
-                            System.out.println((i + 1) + ". " + bankAccounts[i].getAccountNo());
-                        }
-                        try {
-                            int selectedIndex = readInt(input, "Enter account number: ") - 1;
-                            double price = readDouble(input, "Enter payment amount: ");
-                            bankAccounts[selectedIndex].makePayment(price);
-                        } catch (ArrayIndexOutOfBoundsException ex) {
-                            System.out.println("Invalid selection.");
-                        }
-                    } else {
-                        System.out.println("Invalid account type selected.");
-                        System.out.println("________________________________");
-                    }
+            if (paymentType.equals("a")) {
+                if (tngCount == 0) {
+                    System.out.println("No Touch N Go accounts found.");
                     break;
+                }
+                System.out.println("Touch N Go accounts:");
+                for (int i = 0; i < tngCount; i++) {
+                    System.out.println("_________________________________________");
+                    System.out.println((i + 1) + ". " + tngAccounts[i].getTngId());
+                    System.out.println("_________________________________________");
+                }
+                int selectedIndex = -1;
+                while (selectedIndex == -1) {
+                    try {
+                        selectedIndex = readInt(input, "Enter account number: ") - 1;
+                        tngAccounts[selectedIndex].makePayment(0); // test if valid
+                    } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+                        System.out.println("_____________________________________________");
+                        System.out.println("Invalid selection. Please enter a valid range.");
+                        System.out.println("_____________________________________________");
+                        selectedIndex = -1;
+                    }
+                }
+                double price = readDouble(input, "Enter payment amount: ");
+                tngAccounts[selectedIndex].makePayment(price);
 
+            } else if (paymentType.equals("b")) {
+                if (bankCount == 0) {
+                    System.out.println("No Bank Debit accounts found.");
+                    System.out.println("______________________________");
+                    break;
+                }
+                System.out.println("Bank Debit accounts:");
+                for (int i = 0; i < bankCount; i++) {
+                    System.out.println((i + 1) + ". " + bankAccounts[i].getAccountNo());
+                }
+                int selectedIndex = -1;
+                while (selectedIndex == -1) {
+                    try {
+                        selectedIndex = readInt(input, "Enter account number: ") - 1;
+                        bankAccounts[selectedIndex].makePayment(0); // test if valid
+                    } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {
+                        System.out.println("_____________________________________________");
+                        System.out.println("Invalid selection. Please enter a valid range.");
+                        System.out.println("_____________________________________________");
+                        selectedIndex = -1;
+                    }
+                }
+                double price = readDouble(input, "Enter payment amount: ");
+                bankAccounts[selectedIndex].makePayment(price);
+
+            } else {
+                System.out.println("Invalid account type selected.");
+                System.out.println("________________________________");
+            }
+            break;
                 case 6:
                     System.out.println("====================================================");
                     System.out.println("Bye Bye, Don't forget to come back with more money.");
@@ -315,12 +330,7 @@ public class AsgY1G2Main {
                     System.out.println("Invalid selection.");
                     break;
             } 
-        }catch(ArrayIndexOutOfBoundsException exc){
-            System.out.println("Invalid range");
-        }
-        catch(InputMismatchException ec){
-            System.out.println("Invalid input please type again");
-        }
+     
          } while (selection != 6);
         
         input.close();
